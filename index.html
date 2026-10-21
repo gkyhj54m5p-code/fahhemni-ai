@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Fahhemni AI - مساعد مذاكرة للطلاب">
+  <title>Fahhemni AI | فهمني</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">ف</span><span>Fahhemni <b>AI</b></span></a>
+    <nav><a href="#tools" data-ar="الأدوات" data-en="Tools">الأدوات</a><a href="#about" data-ar="عن الموقع" data-en="About">عن الموقع</a></nav>
+    <button id="langBtn" class="lang-btn" aria-label="Change language">EN</button>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="eyebrow"><span class="pulse"></span><span data-ar="رفيقك الذكي للمذاكرة" data-en="Your smart study companion">رفيقك الذكي للمذاكرة</span></div>
+      <h1 data-ar="ذاكر أذكى، مش أصعب." data-en="Study smarter, not harder.">ذاكر أذكى، مش أصعب.</h1>
+      <p data-ar="حوّل ملاحظاتك إلى ملخصات وبطاقات وأسئلة تدريبية في مكان واحد." data-en="Turn your notes into summaries, flashcards, and practice questions in one place.">حوّل ملاحظاتك إلى ملخصات وبطاقات وأسئلة تدريبية في مكان واحد.</p>
+      <a class="primary-btn" href="#workspace" data-ar="ابدأ المذاكرة ←" data-en="Start studying →">ابدأ المذاكرة ←</a>
+      <div class="hero-stats"><div><strong>3</strong><span data-ar="أدوات مذاكرة" data-en="Study tools">أدوات مذاكرة</span></div><div><strong>2</strong><span data-ar="لغات" data-en="Languages">لغات</span></div><div><strong>100%</strong><span data-ar="داخل متصفحك" data-en="In your browser">داخل متصفحك</span></div></div>
+    </section>
+    <section id="workspace" class="workspace">
+      <div class="section-heading"><div><span class="kicker" data-ar="مساحة العمل" data-en="WORKSPACE">مساحة العمل</span><h2 data-ar="خلّي مذاكرتك أسهل" data-en="Make studying easier">خلّي مذاكرتك أسهل</h2></div><span class="local-badge" data-ar="● معالجة محلية" data-en="● Local processing">● معالجة محلية</span></div>
+      <div class="editor-card">
+        <label for="notes" data-ar="حط ملاحظاتك هنا" data-en="Paste your notes here">حط ملاحظاتك هنا</label>
+        <textarea id="notes" placeholder="الصق المحاضرة أو الملاحظات هنا..."></textarea>
+        <div class="editor-footer"><span id="wordCount">0 كلمة</span><label class="upload-btn" for="fileInput" data-ar="↑ رفع ملف نصي" data-en="↑ Upload text file">↑ رفع ملف نصي</label><input id="fileInput" type="file" accept=".txt,.md,.csv" hidden></div>
+        <div class="tool-buttons"><button id="summaryBtn" class="primary-btn" data-ar="✦ إنشاء ملخص" data-en="✦ Make summary">✦ إنشاء ملخص</button><button id="quizBtn" class="secondary-btn" data-ar="؟ أسئلة تدريبية" data-en="? Practice quiz">؟ أسئلة تدريبية</button><button id="cardsBtn" class="secondary-btn" data-ar="▤ بطاقات مراجعة" data-en="▤ Flashcards">▤ بطاقات مراجعة</button></div>
+        <p class="notice" data-ar="تنبيه: هذه نسخة تجريبية تستخدم معالجة نصية بسيطة داخل المتصفح، وليست متصلة بنموذج ذكاء اصطناعي حقيقي أو قاعدة بيانات." data-en="Note: This demo uses simple in-browser text processing. It is not connected to a real AI model or database.">تنبيه: هذه نسخة تجريبية تستخدم معالجة نصية بسيطة داخل المتصفح، وليست متصلة بنموذج ذكاء اصطناعي حقيقي أو قاعدة بيانات.</p>
+      </div>
+      <div id="output" class="output-card" aria-live="polite"><div class="empty-icon">✧</div><h3 data-ar="نتيجتك هتظهر هنا" data-en="Your result will appear here">نتيجتك هتظهر هنا</h3><p data-ar="اكتب أو الصق ملاحظاتك، واختار أداة من الأدوات فوق." data-en="Paste your notes and choose a tool above.">اكتب أو الصق ملاحظاتك، واختار أداة من الأدوات فوق.</p></div>
+    </section>
+    <section id="tools" class="features"><div class="section-heading"><div><span class="kicker" data-ar="أدواتك" data-en="YOUR TOOLS">أدواتك</span><h2 data-ar="كل اللي تحتاجه للمراجعة" data-en="Everything you need to review">كل اللي تحتاجه للمراجعة</h2></div></div>
+      <div class="feature-grid"><article class="feature"><span class="feature-icon">✦</span><h3 data-ar="ملخصات سريعة" data-en="Quick summaries">ملخصات سريعة</h3><p data-ar="استخرج أهم الجمل من ملاحظاتك لتراجعها بسرعة." data-en="Pick out key sentences from your notes for quick review.">استخرج أهم الجمل من ملاحظاتك لتراجعها بسرعة.</p></article><article class="feature"><span class="feature-icon">؟</span><h3 data-ar="اختبر نفسك" data-en="Test yourself">اختبر نفسك</h3><p data-ar="حوّل محتوى مذاكرتك إلى أسئلة تدريبية." data-en="Turn your study material into practice questions.">حوّل محتوى مذاكرتك إلى أسئلة تدريبية.</p></article><article class="feature"><span class="feature-icon">▤</span><h3 data-ar="بطاقات مراجعة" data-en="Flashcards">بطاقات مراجعة</h3><p data-ar="راجع المفاهيم الرئيسية في صورة بطاقات بسيطة." data-en="Review key concepts using simple cards.">راجع المفاهيم الرئيسية في صورة بطاقات بسيطة.</p></article></div>
+    </section>
+    <section id="about" class="about"><h2 data-ar="مصمم للطلاب، خطوة بخطوة." data-en="Built for students, step by step.">مصمم للطلاب، خطوة بخطوة.</h2><p data-ar="مشروع طلابي قابل للتطوير. يمكن لاحقًا ربطه بخدمة ذكاء اصطناعي وواجهة خلفية آمنة." data-en="A student project designed to grow. It can later connect to an AI service through a secure backend.">مشروع طلابي قابل للتطوير. يمكن لاحقًا ربطه بخدمة ذكاء اصطناعي وواجهة خلفية آمنة.</p></section>
+  </main>
+  <footer><span>© 2026 Fahhemni AI</span><span data-ar="صُنع للتعلّم ✦" data-en="Made for learning ✦">صُنع للتعلّم ✦</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
