@@ -14,7 +14,7 @@ function setOutput(title,badge,html){$('#outputTitle').textContent=title;$('#out
 function mark(){activities++;$('#activityCount').textContent=activities;const pct=Math.min(100,activities*15);$('#progressBar').style.width=pct+'%';$('#progressPercent').textContent=pct+'%'}
 function ensure(){if(!sourceText.value.trim()){toast(t('noText'));return false}return true}
 function pickedSentences(){return sentences(sourceText.value)}
-const FAHEMNI_AI_API = "https://fahhemni-ai.jnj4mvm2cr.workers.dev/";
+const FAHEMNI_AI_API = "https://fahhemni-ai-api.jnj4mvm2cr.workers.dev/";
 
 async function askFahhemniAI(message) {
   const response = await fetch(FAHEMNI_AI_API, {
