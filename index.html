@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10172a">
+  <title>فهّمني AI | Fahhemni AI</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="Fahhemni home">
+        <span class="brand-mark">ف</span>
+        <span><strong data-i18n="brand">فهّمني</strong><small>AI STUDY SPACE</small></span>
+      </a>
+      <div class="side-label" data-i18n="workspace">مساحة المذاكرة</div>
+      <button class="nav-item active" data-tab="study"><span>✦</span><span data-i18n="studyTools">أدوات المذاكرة</span></button>
+      <button class="nav-item" data-tab="quiz"><span>✓</span><span data-i18n="quizMode">اختبر نفسك</span></button>
+      <button class="nav-item" data-tab="cards"><span>▤</span><span data-i18n="flashcards">كروت المراجعة</span></button>
+      <div class="sidebar-bottom">
+        <div class="status-card"><span class="status-dot"></span><div><b data-i18n="demoMode">وضع تجريبي</b><small data-i18n="demoDesc">بدون اتصال بخدمة AI</small></div></div>
+        <button class="lang-switch" id="langToggle">🌐 English</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div><div class="eyebrow" data-i18n="topEyebrow">مساحة تعلمك الذكية</div><h1 data-i18n="headline">افهم أكتر، واحفظ أقل.</h1><p data-i18n="subheadline">حوّل ملخصاتك إلى شرح مبسّط وأسئلة تدريبية في مكان واحد.</p></div>
+        <div class="avatar" aria-hidden="true">Z</div>
+      </header>
+
+      <section class="welcome-strip">
+        <div class="welcome-icon">✧</div>
+        <div><b data-i18n="welcomeTitle">أهلًا بيك في Fahhemni</b><p data-i18n="welcomeText">ضيف محتوى المحاضرة، واستخدم الأدوات لتبدأ المراجعة فورًا.</p></div>
+        <span class="pill" data-i18n="studentProject">Student Project</span>
+      </section>
+
+      <div class="layout-grid">
+        <section class="content-column">
+          <div class="section-heading"><div><span class="eyebrow" data-i18n="startHere">ابدأ من هنا</span><h2 data-i18n="yourMaterial">محتوى المذاكرة</h2></div><button class="text-button" id="loadSample" data-i18n="trySample">جرّب مثالًا جاهزًا ↗</button></div>
+          <div class="panel input-panel">
+            <div class="panel-title"><div class="panel-icon purple">▤</div><div><h3 data-i18n="pasteTitle">الصق محتوى المحاضرة</h3><p data-i18n="pasteDesc">اكتب النص أو الصق جزءًا من ملخصك هنا.</p></div></div>
+            <textarea id="sourceText" rows="9" data-placeholder-ar="الصق نص المحاضرة هنا...\n\nمثال: الذاكرة العشوائية RAM هي ذاكرة مؤقتة تستخدم لتخزين البيانات والتعليمات التي يحتاجها المعالج أثناء تشغيل البرامج. تفقد محتوياتها عند انقطاع الكهرباء." data-placeholder-en="Paste your lecture notes here...\n\nExample: RAM is temporary memory used to store data and instructions that the CPU needs while programs are running. It loses its contents when power is turned off." placeholder="الصق نص المحاضرة هنا..."></textarea>
+            <div class="input-footer"><span id="wordCount">0 كلمة</span><div class="input-actions"><label class="upload-btn" for="fileInput">↑ <span data-i18n="uploadText">رفع ملف PDF أو نص</span></label><input id="fileInput" type="file" accept=".pdf,.txt,.md,.csv,application/pdf,text/plain,text/markdown" hidden><button class="primary-btn" id="generateSummary"><span>✦</span><span data-i18n="makeSummary">لخّص المحتوى</span></button></div></div>
+            <p class="fine-print" data-i18n="privacyNote">المعالجة الحالية تتم داخل المتصفح. لا يتم رفع النص إلى خادم.</p>
+          </div>
+
+          <div class="section-heading results-heading"><div><span class="eyebrow" data-i18n="studyToolsEyebrow">أدوات عملية</span><h2 data-i18n="chooseTool">اختار اللي محتاجه</h2></div></div>
+          <div class="tool-grid">
+            <button class="tool-card" id="makeSummaryCard"><span class="tool-symbol lavender">✧</span><span class="tool-title" data-i18n="summaryTool">ملخص سريع</span><span class="tool-desc" data-i18n="summaryToolDesc">أهم الجمل في نقاط واضحة</span><span class="tool-arrow">↗</span></button>
+            <button class="tool-card" id="makeQuiz"><span class="tool-symbol mint">✓</span><span class="tool-title" data-i18n="quizTool">أسئلة تدريبية</span><span class="tool-desc" data-i18n="quizToolDesc">اختبر فهمك للمحتوى</span><span class="tool-arrow">↗</span></button>
+            <button class="tool-card" id="makeCards"><span class="tool-symbol peach">▤</span><span class="tool-title" data-i18n="cardsTool">كروت مراجعة</span><span class="tool-desc" data-i18n="cardsToolDesc">راجع المفاهيم الأساسية</span><span class="tool-arrow">↗</span></button>
+            <button class="tool-card" id="makeExplain"><span class="tool-symbol lavender">✎</span><span class="tool-title" data-i18n="explainTool">اشرح لي</span><span class="tool-desc" data-i18n="explainDesc">تبسيط محتوى المحاضرة</span><span class="tool-arrow">↗</span></button>
+            <button class="tool-card" id="makeImportant"><span class="tool-symbol mint">★</span><span class="tool-title" data-i18n="importantTool">حدد المهم</span><span class="tool-desc" data-i18n="importantDesc">النقاط والتعريفات الأساسية</span><span class="tool-arrow">↗</span></button>
+          </div>
+
+          <section class="panel output-panel" id="outputPanel">
+            <div class="output-top"><div><span class="eyebrow" data-i18n="yourResults">نتيجتك</span><h2 id="outputTitle" data-i18n="readyTitle">جاهز نبدأ؟</h2></div><span class="output-badge" id="outputBadge" data-i18n="waiting">في انتظار المحتوى</span></div>
+            <div id="outputContent" class="output-content empty-state"><div class="empty-illustration">✦</div><b data-i18n="emptyTitle">محتواك هيظهر هنا</b><p data-i18n="emptyDesc">الصق نصًا بالأعلى، وبعدها اختار ملخص أو أسئلة أو كروت مراجعة.</p></div>
+          </section>
+        </section>
+
+        <aside class="right-column">
+          <div class="panel progress-panel">
+            <div class="section-heading compact"><div><span class="eyebrow" data-i18n="yourProgress">تقدّمك</span><h2 data-i18n="todayActivity">نشاط الجلسة</h2></div><span class="progress-icon">↗</span></div>
+            <div class="progress-number"><strong id="activityCount">0</strong><span data-i18n="activities">أنشطة مكتملة</span></div>
+            <div class="progress-track"><span id="progressBar"></span></div>
+            <div class="progress-caption"><span data-i18n="smallSteps">كل خطوة بتفرق</span><b id="progressPercent">0%</b></div>
+          </div>
+          <div class="panel tip-panel">
+            <div class="tip-head"><span class="tip-icon">✧</span><span data-i18n="studyTip">نصيحة للمذاكرة</span></div>
+            <h3 data-i18n="tipTitle">اختبر نفسك قبل ما تراجع الإجابة</h3>
+            <p data-i18n="tipText">محاولة استرجاع المعلومة من الذاكرة بتساعدك تعرف إيه اللي فهمته وإيه اللي محتاج مراجعة.</p>
+            <div class="tip-decoration">✦</div>
+          </div>
+          <div class="panel feature-panel">
+            <div class="feature-icon">⌘</div><h3 data-i18n="comingSoon">الخطوة الجاية</h3>
+            <p data-i18n="comingSoonText">ربط نموذج AI حقيقي، وتحليل ملفات PDF، وحفظ تقدمك بين الجلسات.</p>
+            <span class="mini-tag" data-i18n="planned">مخطط للتطوير</span>
+          </div>
+        </aside>
+      </div>
+      <footer><span>Fahhemni AI</span><span data-i18n="footerNote">نسخة أولية تعليمية • Demo build</span></footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="app.js"></script>
+</body>
+</html>
